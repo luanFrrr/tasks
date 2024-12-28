@@ -19,6 +19,12 @@ body {
   margin-left: 8px;
   cursor: pointer;
 }
+.icon-red {
+  fill: #d94949;
+}
+.icon-green {
+  fill: #2eda48;
+}
 
 .task-input {
   background: none;
