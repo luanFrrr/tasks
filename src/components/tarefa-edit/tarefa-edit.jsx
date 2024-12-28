@@ -1,18 +1,18 @@
-import "./tarefa.css";
+import "./tarefa-edit.css";
 
-function Tarefa(props) {
+function TarefaEdit(props) {
   return (
-    <div className="tarefa">
+    <div className="tarefa-edit">
       <div>
         <input
-          className="task-ckeckbox"
-          type="checkbox"
+          className="task-input"
+          type="text"
           name="tarefa"
           id="tarefa"
+          value={props.descricao}
         />
-        {props.descricao}
       </div>
-      <div className="tarefa-acoes">
+      <div className="tarefa-edit-acoes">
         <svg
           className="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -39,4 +39,4 @@ function Tarefa(props) {
   );
 }
 
-export default Tarefa;
+export default TarefaEdit;

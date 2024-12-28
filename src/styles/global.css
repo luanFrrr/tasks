@@ -13,3 +13,21 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.icon {
+  fill: #fff;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.task-input {
+  background: none;
+  border: 1px solid #845afc;
+  padding: 0.5rem 1rem;
+  width: 265px;
+  color: #fff;
+}
+
+.task-input::placeholder {
+  color: #d1d1d1;
+}

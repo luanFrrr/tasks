@@ -1,4 +1,5 @@
 import Tarefa from "../../components/tarefa/tarefa.jsx";
+import TarefaEdit from "../../components/tarefa-edit/tarefa-edit.jsx";
 import "./home.css";
 
 function Home() {
@@ -7,9 +8,10 @@ function Home() {
       id: 1,
       descricao: "Estudar React",
       done: false,
+      edit: false,
     },
-    { id: 2, descricao: "Estudar Node", done: false },
-    { id: 3, descricao: "Estudar CSS", done: false },
+    { id: 2, descricao: "Estudar Node", done: false, edit: true },
+    { id: 3, descricao: "Estudar CSS", done: false, edit: false },
   ];
   return (
     <div className="container-tasks">
@@ -25,9 +27,16 @@ function Home() {
         />
         <button className="task-btn">Inserir Tarefa</button>
       </div>
+
       <div className="lista-tarefa">
         {tarefas.map((task) => {
-          return (
+          return task.edit ? (
+            <TarefaEdit
+              id={task.id}
+              descricao={task.descricao}
+              done={task.done}
+            />
+          ) : (
             <Tarefa id={task.id} descricao={task.descricao} done={task.done} />
           );
         })}

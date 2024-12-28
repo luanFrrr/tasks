@@ -1,23 +1,12 @@
 .container-tasks {
   background-color: #1b1a41;
-  padding: 30px;
+  padding: 40px;
   width: 400px;
   margin-top: 50px;
 }
 .form-tarefa {
   margin-top: 20px;
   width: 100%;
-}
-.task-input {
-  background: none;
-  border: 1px solid #845afc;
-  padding: 0.5rem 1rem;
-  width: 265px;
-  color: #fff;
-}
-
-.task-input::placeholder {
-  color: #d1d1d1;
 }
 
 .task-btn {
