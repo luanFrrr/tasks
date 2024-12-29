@@ -28,6 +28,8 @@ function Home() {
     });
 
     setTarefas(novaLista);
+
+    console.log(tarefas);
   };
 
   const EditTarefa = (id) => {

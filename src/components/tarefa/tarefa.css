@@ -16,3 +16,7 @@
   display: flex;
   align-items: center;
 }
+
+.tarefa-done {
+  text-decoration: line-through;
+}
