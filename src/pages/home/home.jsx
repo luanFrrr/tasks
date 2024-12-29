@@ -23,63 +23,43 @@ function Home() {
   }
 
   const DeleteTarefa = (id) => {
-    const novaLista = tarefas.filter((tarefa) => {
-      return tarefa.id != id;
-    });
-
+    const novaLista = tarefas.filter((tarefa) => tarefa.id !== id);
     setTarefas(novaLista);
-
     console.log(tarefas);
   };
 
   const EditTarefa = (id) => {
-    let novaLista = [];
-
-    tarefas.map((tarefa) => {
-      if (tarefa.id == id) tarefa.edit = true;
-
-      novaLista.push(tarefa);
+    const novaLista = tarefas.map((tarefa) => {
+      if (tarefa.id === id) tarefa.edit = true;
+      return tarefa;
     });
-
     setTarefas(novaLista);
   };
 
   const EditTarefaConfirma = (descricao, id) => {
-    let novaLista = [];
-
-    tarefas.map((tarefa) => {
-      if (tarefa.id == id) {
+    const novaLista = tarefas.map((tarefa) => {
+      if (tarefa.id === id) {
         tarefa.edit = false;
         tarefa.descricao = descricao;
       }
-
-      novaLista.push(tarefa);
+      return tarefa;
     });
-
     setTarefas(novaLista);
   };
 
   const CancelarEditTarefa = (id) => {
-    let novaLista = [];
-
-    tarefas.map((tarefa) => {
-      if (tarefa.id == id) tarefa.edit = false;
-
-      novaLista.push(tarefa);
+    const novaLista = tarefas.map((tarefa) => {
+      if (tarefa.id === id) tarefa.edit = false;
+      return tarefa;
     });
-
     setTarefas(novaLista);
   };
 
   const TarefaConcluida = (id, done) => {
-    let novaLista = [];
-
-    tarefas.map((tarefa) => {
-      if (tarefa.id == id) tarefa.done = done;
-
-      novaLista.push(tarefa);
+    const novaLista = tarefas.map((tarefa) => {
+      if (tarefa.id === id) tarefa.done = done;
+      return tarefa;
     });
-
     setTarefas(novaLista);
   };
 
