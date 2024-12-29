@@ -14,6 +14,7 @@ function Tarefa(props) {
       </div>
       <div className="tarefa-acoes">
         <svg
+          onClick={(e) => props.onClickEdit(props.id)}
           className="icon"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -25,6 +26,7 @@ function Tarefa(props) {
         </svg>
 
         <svg
+          onClick={(e) => props.onClickDelete(props.id)}
           className="icon"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
