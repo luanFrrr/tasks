@@ -1,7 +1,7 @@
 import Tarefa from "../../components/tarefa/tarefa.jsx";
 import TarefaEdit from "../../components/tarefa-edit/tarefa-edit.jsx";
-import { useState } from "react";
 import "./home.css";
+import { useState } from "react";
 import { v4 as uuid } from "uuid";
 
 function Home() {
@@ -11,30 +11,73 @@ function Home() {
   function AddTarefa() {
     let tarefa = {
       id: uuid(),
-      descricao: descricao,
+      descricao,
       done: false,
       edit: false,
     };
 
     setTarefas([...tarefas, tarefa]);
     setDescricao("");
+
+    console.log(tarefas);
   }
 
   const DeleteTarefa = (id) => {
     const novaLista = tarefas.filter((tarefa) => {
-      return tarefa.id !== id;
+      return tarefa.id != id;
     });
+
     setTarefas(novaLista);
   };
 
   const EditTarefa = (id) => {
     let novaLista = [];
-    tarefas.forEach((tarefa) => {
-      if (tarefa.id === id) {
-        tarefa.edit = true;
-      }
+
+    tarefas.map((tarefa) => {
+      if (tarefa.id == id) tarefa.edit = true;
+
       novaLista.push(tarefa);
     });
+
+    setTarefas(novaLista);
+  };
+
+  const EditTarefaConfirma = (descricao, id) => {
+    let novaLista = [];
+
+    tarefas.map((tarefa) => {
+      if (tarefa.id == id) {
+        tarefa.edit = false;
+        tarefa.descricao = descricao;
+      }
+
+      novaLista.push(tarefa);
+    });
+
+    setTarefas(novaLista);
+  };
+
+  const CancelarEditTarefa = (id) => {
+    let novaLista = [];
+
+    tarefas.map((tarefa) => {
+      if (tarefa.id == id) tarefa.edit = false;
+
+      novaLista.push(tarefa);
+    });
+
+    setTarefas(novaLista);
+  };
+
+  const TarefaConcluida = (id, done) => {
+    let novaLista = [];
+
+    tarefas.map((tarefa) => {
+      if (tarefa.id == id) tarefa.done = done;
+
+      novaLista.push(tarefa);
+    });
+
     setTarefas(novaLista);
   };
 
@@ -50,7 +93,7 @@ function Home() {
           type="text"
           name="task"
           id="task"
-          placeholder="Descreva sua tarefa"
+          placeholder="Descreva sua tarefa..."
         />
         <button onClick={AddTarefa} className="task-btn">
           Inserir Tarefa
@@ -61,17 +104,22 @@ function Home() {
         {tarefas.map((task) => {
           return task.edit ? (
             <TarefaEdit
+              key={task.id}
               id={task.id}
               descricao={task.descricao}
               done={task.done}
+              onClickSave={EditTarefaConfirma}
+              onClickCancel={CancelarEditTarefa}
             />
           ) : (
             <Tarefa
+              key={task.id}
               id={task.id}
               descricao={task.descricao}
               done={task.done}
               onClickDelete={DeleteTarefa}
               onClickEdit={EditTarefa}
+              onClickConcluir={TarefaConcluida}
             />
           );
         })}
