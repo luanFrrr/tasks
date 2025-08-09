@@ -6,9 +6,64 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Poppins", sans-serif;
 }
 
 .tarefa-edit-acoes {
   display: flex;
   align-items: center;
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets (768px e abaixo) */
+@media (max-width: 768px) {
+  .tarefa-edit {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+
+  .tarefa-edit-acoes svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Celulares (480px e abaixo) */
+@media (max-width: 480px) {
+  .tarefa-edit {
+    padding: 15px 12px;
+    margin-bottom: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .tarefa-edit-acoes {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 15px;
+  }
+
+  .tarefa-edit-acoes svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Celulares pequenos (360px e abaixo) */
+@media (max-width: 360px) {
+  .tarefa-edit {
+    padding: 12px 10px;
+    margin-bottom: 10px;
+  }
+
+  .tarefa-edit-acoes {
+    gap: 12px;
+  }
+
+  .tarefa-edit-acoes svg {
+    width: 20px;
+    height: 20px;
+  }
 }

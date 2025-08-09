@@ -1,22 +1,137 @@
 .tarefa {
   background-color: #854afc;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 20px;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(133, 74, 252, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.task-ckeckbox {
-  margin-right: 5px;
+.tarefa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(133, 74, 252, 0.3);
+}
+
+.tarefa-conteudo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-checkbox {
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  z-index: 10;
+  position: relative;
+  accent-color: #6b47d8;
 }
 
 .tarefa-acoes {
   display: flex;
   align-items: center;
+  gap: 8px;
+}
+
+.tarefa-acoes svg {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.tarefa-acoes svg:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
 }
 
 .tarefa-done {
-  text-decoration: line-through;
+  text-decoration: line-through !important;
+  text-decoration-color: #ffffff !important;
+  text-decoration-thickness: 3px !important;
+  opacity: 0.6;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets (768px e abaixo) */
+@media (max-width: 768px) {
+  .tarefa {
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+
+  .task-checkbox {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tarefa-acoes svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Celulares (480px e abaixo) */
+@media (max-width: 480px) {
+  .tarefa {
+    padding: 16px 14px;
+    margin-bottom: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .tarefa-conteudo {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .task-checkbox {
+    width: 26px;
+    height: 26px;
+  }
+
+  .tarefa-acoes {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  .tarefa-acoes svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .tarefa-done {
+    text-decoration-thickness: 4px !important;
+  }
+}
+
+/* Celulares pequenos (360px e abaixo) */
+@media (max-width: 360px) {
+  .tarefa {
+    padding: 14px 12px;
+    margin-bottom: 10px;
+  }
+
+  .task-checkbox {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tarefa-acoes {
+    gap: 14px;
+  }
+
+  .tarefa-acoes svg {
+    width: 24px;
+    height: 24px;
+  }
 }

@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -12,16 +13,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .icon {
   fill: #fff;
   margin-left: 8px;
   cursor: pointer;
+  transition: opacity 0.2s ease;
 }
+
+.icon:hover {
+  opacity: 0.8;
+}
+
 .icon-red {
   fill: #d94949;
 }
+
 .icon-green {
   fill: #2eda48;
 }
@@ -32,8 +42,58 @@ body {
   padding: 0.5rem 1rem;
   width: 265px;
   color: #fff;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
 }
 
 .task-input::placeholder {
   color: #d1d1d1;
+}
+
+/* Media Queries para Responsividade Global */
+
+/* Tablets (768px e abaixo) */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  .icon {
+    margin-left: 6px;
+  }
+
+  .task-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Celulares (480px e abaixo) */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .icon {
+    margin-left: 4px;
+  }
+
+  .task-input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 16px; /* Evita zoom no iOS */
+  }
+}
+
+/* Celulares pequenos (360px e abaixo) */
+@media (max-width: 360px) {
+  body {
+    padding: 5px;
+  }
+
+  .task-input {
+    padding: 0.6rem 0.8rem;
+    font-size: 16px;
+  }
 }

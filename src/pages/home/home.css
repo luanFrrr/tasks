@@ -1,48 +1,191 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #845afc;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
 .container-tasks {
   background-color: #1b1a41;
   padding: 40px;
-  width: 400px;
-  margin-top: 50px;
+  width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", sans-serif;
+}
+
+.container-tasks h2 {
+  color: #fff;
+  margin: 0 0 25px 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 
 .form-tarefa {
-  margin-top: 20px;
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  align-items: stretch;
+  margin-bottom: 10px;
 }
 
 .task-input {
-  padding: 0.55rem;
-  border: none;
+  flex: 1;
+  padding: 14px 16px;
+  border: 2px solid #845afc;
+  border-radius: 8px;
   outline: none;
   background-color: #fff;
   color: #333;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  transition: border-color 0.3s ease;
 }
 
-.task-select {
-  padding: 0.55rem;
-  border: none;
-  outline: none;
-  background-color: #fff;
-  color: #333;
-  cursor: pointer;
+.task-input:focus {
+  border-color: #6b47d8;
+  box-shadow: 0 0 0 3px rgba(107, 71, 216, 0.1);
+}
+
+.task-input::placeholder {
+  color: #999;
+  font-family: "Poppins", sans-serif;
 }
 
 .task-btn {
   background-color: #845afc;
   color: #fff;
   border: none;
-  padding: 0.55rem;
+  padding: 14px 24px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  min-width: 140px;
 }
 
 .task-btn:hover {
   background-color: #6b47d8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 71, 216, 0.3);
+}
+
+.task-btn:active {
+  transform: translateY(0);
 }
 
 .lista-tarefa {
-  margin-top: 20px;
+  margin-top: 25px;
+}
+
+.error {
+  background-color: #ff4757;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets (768px e abaixo) */
+@media (max-width: 768px) {
+  .container-tasks {
+    width: 90%;
+    max-width: 550px;
+    padding: 35px 30px;
+    margin: 20px;
+  }
+
+  .container-tasks h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .form-tarefa {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .task-input {
+    width: 100%;
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  .task-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    min-width: auto;
+  }
+}
+
+/* Celulares (480px e abaixo) */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .container-tasks {
+    width: 100%;
+    padding: 25px 20px;
+    margin: 0;
+    border-radius: 8px;
+  }
+
+  .container-tasks h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .form-tarefa {
+    gap: 12px;
+  }
+
+  .task-input {
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .task-btn {
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .lista-tarefa {
+    margin-top: 20px;
+  }
+}
+
+/* Celulares pequenos (360px e abaixo) */
+@media (max-width: 360px) {
+  .container-tasks {
+    padding: 20px 15px;
+  }
+
+  .container-tasks h2 {
+    font-size: 1.3rem;
+  }
+
+  .task-input {
+    padding: 14px;
+  }
+
+  .task-btn {
+    padding: 14px;
+    font-size: 15px;
+  }
 }
