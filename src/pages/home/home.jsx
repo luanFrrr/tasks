@@ -59,7 +59,11 @@ function Home() {
         const novaTarefa = {
           id: response.data.dados.id,
           descricao: response.data.dados.descricao,
-          done: response.data.dados.status === 1,
+          // status chega como '1' ou '0' (string); normalizar para boolean
+          done:
+            response.data.dados.status === "1" ||
+            response.data.dados.status === 1 ||
+            response.data.dados.status === true,
           edit: false,
         };
 
@@ -121,13 +125,13 @@ function Home() {
       });
   };
 
-  const EditTarefa = (id) => {
+  function EditTarefa(id) {
     const novaLista = tarefas.map((tarefa) => {
       if (tarefa.id === id) tarefa.edit = true;
       return tarefa;
     });
     setTarefas(novaLista);
-  };
+  }
 
   const EditTarefaConfirma = (descricao, id) => {
     api
@@ -226,7 +230,11 @@ function Home() {
         const tarefasFormatadas = response.data.dados.map((tarefa) => ({
           id: tarefa.id,
           descricao: tarefa.descricao,
-          done: tarefa.status === 1, // Converter status (1/0) para done (true/false)
+          // Converter status (string '1'/'0' ou boolean) em done (true/false)
+          done:
+            tarefa.status === "1" ||
+            tarefa.status === 1 ||
+            tarefa.status === true,
           edit: false,
         }));
         setTarefas(tarefasFormatadas);
